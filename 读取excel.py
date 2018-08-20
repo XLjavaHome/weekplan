@@ -32,13 +32,13 @@ def get_week(diretory):
                     lastbugSet.add(textValue)
                 if cellType.value == '开发任务' and textValue != '':
                     lastTaskSet.add(textValue)
-        # 本周工作计划
+        # 本周工作计划,从第一行开始
         if cell0.value == 'BUG编号':
-            for row in range(0, maxrow):
+            for row in range(1, maxrow):
                 bugSet.add(sheet.cell(row, 1).value)
                 # 本周工作计划
         if cell0.value == '任务名称':
-            for row in range(0, maxrow):
+            for row in range(1, maxrow):
                 taskSet.add(sheet.cell(row, 0).value)
     num = 1
     result = "上周工作内容：\n"
