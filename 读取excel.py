@@ -15,6 +15,14 @@ def get_week(diretory):
     # 本周计划
     taskSet = set()
     bugSet = set()
+    # 上周修复BUG数量
+    lastWeekBugCount = 0
+    # 上周开发任务数
+    lastWeekTaskCount = 0;
+    # 本周的BUG数量
+    bugCount = 0
+    # 本周的任务数
+    taskCount = 0
     for file in util.文件.get_excel(diretory):
         excelFile = xlrd.open_workbook(file)
         # 获取第一个sheet，第一行是日志类型就进行。
@@ -29,16 +37,21 @@ def get_week(diretory):
                 cellType = sheet.cell(row, 0)
                 textValue = sheet.cell(row, 5).value
                 if cellType.value == 'BUG修复' and textValue != '':
+                    lastWeekBugCount += 1
                     lastbugSet.add(textValue)
                 if cellType.value == '开发任务' and textValue != '':
+                    lastWeekTaskCount += 1
                     lastTaskSet.add(textValue)
+
         # 本周工作计划,从第一行开始
         if cell0.value == 'BUG编号':
             for row in range(1, maxrow):
+                bugCount += 1
                 bugSet.add(sheet.cell(row, 1).value)
                 # 本周工作计划
         if cell0.value == '任务名称':
             for row in range(1, maxrow):
+                taskCount += 1
                 taskSet.add(sheet.cell(row, 0).value)
     num = 1
     result = "上周工作内容：\n"
@@ -54,6 +67,7 @@ def get_week(diretory):
         num = num + 1
     if bugSet:
         result += "{0}.修复{1}的BUG。\n".format(*[num, '、'.join(bugSet)])
+    result += "目前有%s个BUG。\n" % bugCount
     return result
 if __name__ == '__main__':
     # 扫描的文件目录
