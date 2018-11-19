@@ -1,6 +1,3 @@
-os
-winreg
-tkinter
 pyperclip
 xlrd
 pip install TkInter

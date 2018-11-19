@@ -9,7 +9,10 @@ root = Tk()
 def xz():
     filename = tkinter.filedialog.askdirectory()
     if filename != '':
-        result = 读取excel.get_week(filename)
+        try:
+            result = 读取excel.get_week(filename)
+        except:
+            print("文件处于打开状态")
         # 删除所有内容
         text.delete('1.0', 'end')
         # 将内容复制进剪切板
