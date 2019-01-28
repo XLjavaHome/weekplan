@@ -35,7 +35,7 @@ def get_week(diretory):
             for row in range(0, maxrow):
                 # 第一列的内容
                 cellType = sheet.cell(row, 0)
-                # 上周的需求名称
+                # 上周的需求名称ZXX
                 textValue = sheet.cell(row, 5).value
                 if cellType.value == 'BUG修复' and textValue != '':
                     lastWeekBug.add(sheet.cell(row, 4).value)

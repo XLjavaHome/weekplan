@@ -22,8 +22,8 @@ def xz():
         text.config(text="您没有选择任何文件夹");
 text = Text(root, height=10)
 text.pack()
-helpInfo = '自动将内容复制到剪切板'
-root.title("上周工作内容、本周工作计划，{0}".format(helpInfo))
+root.title("自动生成周报")
 btn = Button(root, text="请选择excel所在目录", command=xz)
 btn.pack()
 root.mainloop()
+
