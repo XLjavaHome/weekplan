@@ -22,8 +22,7 @@ def xz():
         text.config(text="您没有选择任何文件夹");
 text = Text(root, height=10)
 text.pack()
-root.title("自动生成周报")
+root.title("读取excel生成周报")
 btn = Button(root, text="请选择excel所在目录", command=xz)
 btn.pack()
 root.mainloop()
-
