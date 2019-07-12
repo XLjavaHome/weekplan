@@ -57,13 +57,13 @@ def get_week(diretory):
                 taskSet.add(sheet.cell(row, 0).value)
     # 每行开头的数字
     num = 1
-    result = "上周工作内容：\n"
+    result = "本周工作内容：\n"
     if lastTaskSet:
         result += "{0}.开发{1}的任务。\n".format(*[num, '、'.join(lastTaskSet)])
         num = num + 1
     if lastbugRequirementSet:
         result += "{0}.修复{1}的BUG。（{2}个BUG）\n".format(*[num, '、'.join(lastbugRequirementSet), len(lastWeekBug)])
-    result += '本周工作计划：\n'
+    result += '下周工作计划：\n'
     num = 1
     if taskSet:
         result += "{0}.开发{1}任务。\n".format(*[num, '、'.join(taskSet)])
